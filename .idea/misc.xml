@@ -3,7 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/COMP231-FinalProject/COMP231-Project/app/src/main/res/layout-land/layout.xml" value="0.4691358024691358" />
+        <entry key="..\:/COMP231-FinalProject/COMP231-Project/app/src/main/res/layout/activity_calendar.xml" value="0.5538949275362319" />
         <entry key="..\:/COMP231-FinalProject/COMP231-Project/app/src/main/res/layout/activity_main.xml" value="0.5538949275362319" />
+        <entry key="..\:/COMP231-FinalProject/COMP231-Project/app/src/main/res/layout/activity_schedule.xml" value="0.5538949275362319" />
+        <entry key="..\:/COMP231-FinalProject/COMP231-Project/app/src/main/res/layout/activity_task.xml" value="0.5538949275362319" />
+        <entry key="..\:/COMP231-FinalProject/COMP231-Project/app/src/main/res/layout/activity_test.xml" value="0.5538949275362319" />
       </map>
     </option>
   </component>

@@ -11,14 +11,18 @@
         android:theme="@style/Theme.COMP231_FinalProject">
         <activity
             android:name=".ScheduleActivity"
+            android:screenOrientation="sensorLandscape"
             android:exported="false" />
         <activity
             android:name=".CalendarActivity"
+            android:screenOrientation="sensorLandscape"
             android:exported="false" />
         <activity
             android:name=".TaskActivity"
+            android:screenOrientation="sensorLandscape"
             android:exported="false" />
         <activity
+            android:screenOrientation="sensorLandscape"
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
