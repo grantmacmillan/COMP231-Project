@@ -2,6 +2,8 @@ package com.example.comp231_finalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -25,5 +27,21 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Home button clicked", Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    public void button1Clicked(View v) {
+        startActivity(new Intent(MainActivity.this, TaskActivity.class));
+    }
+    public void button2Clicked(View v){
+
+            startActivity(new Intent(MainActivity.this, CalendarActivity.class));
+
+         
+    }
+
+    public void button3Clicked(View v){
+
+            startActivity(new Intent(MainActivity.this, ScheduleActivity.class));
+
     }
 }
