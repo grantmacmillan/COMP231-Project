@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -39,6 +40,8 @@ public class TaskActivity extends AppCompatActivity {
 
         AddColumn();
         AddColumn();
+        AddColumn();
+        AddColumn();
     }
 
     private void SetupTaskModels() {
@@ -58,8 +61,9 @@ public class TaskActivity extends AppCompatActivity {
         //gets recycler view in the layout that was just added (the new column)
         RecyclerView recyclerView = newColumnLayout.findViewById(R.id.recyclerView);
         ImageView imageView = newColumnLayout.findViewById(R.id.imageView);
+        TextView textView = newColumnLayout.findViewById(R.id.textView);
 
-        layout.setViewDraggable(newColumnLayout, newColumnLayout);
+        layout.setViewDraggable(newColumnLayout, textView);
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
