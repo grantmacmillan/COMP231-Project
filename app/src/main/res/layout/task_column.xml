@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:layout_margin="10dp"
         android:elevation="8dp"
-        app:cardBackgroundColor="@color/dark_gray"
+        app:cardBackgroundColor="@color/gray700"
         app:cardCornerRadius="15dp">
 
         <LinearLayout
@@ -30,7 +30,7 @@
                     android:layout_marginBottom="7dp"
                     android:gravity="left"
                     android:text="Column Title"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white100" />
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="20dp"
@@ -38,6 +38,7 @@
                     android:src="@drawable/plus_icon"
                     android:layout_marginLeft="80dp"
                     android:layout_marginTop="7dp"
+                    android:drawableTint="@color/white100"
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="7dp"
                     />
@@ -50,6 +51,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
+                android:textColor="@color/white100"
                 android:layout_marginBottom="20dp"></androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
