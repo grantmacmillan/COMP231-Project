@@ -3,33 +3,50 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/gray800"
     tools:context=".MainActivity">
     <include layout="@layout/toolbar"/>
 
     <LinearLayout
         android:layout_weight="1"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:layout_marginLeft="124dp"
+        android:layout_marginTop="64dp">
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_marginBottom="16dp"
+            android:drawableTop="@drawable/ic_clipboard"
             android:text="Taskboard"
+            android:textSize="16dp"
+            android:drawableTint="@color/white100"
+            android:textColor="@color/white100"
             android:onClick="button1Clicked"/>
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_marginBottom="16dp"
-            android:text="Calander"
+            android:layout_marginLeft="16dp"
+            android:textSize="16dp"
+            android:layout_marginRight="16dp"
+            android:drawableTop="@drawable/ic_calendar"
+            android:text="Calendar"
+            android:drawableTint="@color/white100"
+            android:textColor="@color/white100"
             android:onClick="button2Clicked"/>
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:textSize="16dp"
             android:layout_marginBottom="16dp"
-            android:text="Time Table"
+            android:drawableTint="@color/white100"
+            android:textColor="@color/white100"
+            android:drawableTop="@drawable/ic_weeklyevent"
+            android:text="Schedule"
             android:onClick="button3Clicked"/>
     </LinearLayout>
 
