@@ -18,7 +18,7 @@ import java.util.Map;
 
 public class TaskActivity extends AppCompatActivity {
     ArrayList<TaskModel> taskModels = new ArrayList<>();
-    LinearLayout layout;
+    DragLinearLayout layout;
     ArrayList<RecyclerView> columnRecyclerViews;
     HashMap<String, RecyclerView> recyclerViewDictionary = new HashMap<>();
     @Override
@@ -35,10 +35,10 @@ public class TaskActivity extends AppCompatActivity {
         //todoRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         //doneRecyclerView.setAdapter(adapter);
         //doneRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        layout = (LinearLayout) findViewById (R.id.linearLayout);
-        AddColumn();
-        AddColumn();
+        layout = (DragLinearLayout) findViewById (R.id.linearLayout);
 
+        AddColumn();
+        AddColumn();
     }
 
     private void SetupTaskModels() {
@@ -58,6 +58,8 @@ public class TaskActivity extends AppCompatActivity {
         //gets recycler view in the layout that was just added (the new column)
         RecyclerView recyclerView = newColumnLayout.findViewById(R.id.recyclerView);
         ImageView imageView = newColumnLayout.findViewById(R.id.imageView);
+
+        layout.setViewDraggable(newColumnLayout, newColumnLayout);
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
