@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray800"
-    android:orientation="vertical"
     tools:context=".CalendarActivity">
 
-    <include layout="@layout/toolbar"/>
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:elevation="0dp">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        app:popupTheme="@style/Theme.AppCompat.Light"
+        app:titleTextAppearance="@style/Theme.COMP231_FinalProject.TitleText"
+        app:subtitleTextAppearance="@style/Theme.COMP231_FinalProject.SubTitleText" />
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <org.hugoandrade.calendarviewlib.CalendarView
         app:current_day_text_color="@color/gray800"
@@ -23,7 +36,23 @@
         app:current_day_text_style="bold"
         app:current_day_circle_enable="true"
         app:current_day_circle_color="@color/white100"
-        app:offset_day="Sunday">
+        android:id="@+id/calendarView"
+        app:offset_day="Sunday"
+        app:month_header_show="false"
+        app:week_header_movable="false">
 
     </org.hugoandrade.calendarviewlib.CalendarView>
-</LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:tint="#fff"
+        app:elevation="0dp"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <include layout="@layout/layout_create_calendar_event" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

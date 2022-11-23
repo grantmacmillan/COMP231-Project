@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">COMP231_FinalProject</string>
+
+    <string name="today">today</string>
 </resources>
