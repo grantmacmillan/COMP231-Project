@@ -5,8 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray800"
+    android:orientation="vertical"
     tools:context=".CalendarActivity">
 
     <include layout="@layout/toolbar"/>
 
+    <org.hugoandrade.calendarviewlib.CalendarView
+        app:current_day_text_color="@color/gray800"
+        app:starting_weekday="Sunday"
+        app:month_header_text_color="@color/white100"
+        app:month_header_arrows_color="@color/white100"
+        app:week_header_offset_day_text_color="@color/white100"
+        app:offset_day_text_color="@color/white100"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:day_text_color="@color/white100"
+        app:current_day_text_style="bold"
+        app:current_day_circle_enable="true"
+        app:current_day_circle_color="@color/white100"
+        app:offset_day="Sunday">
+
+    </org.hugoandrade.calendarviewlib.CalendarView>
 </LinearLayout>
