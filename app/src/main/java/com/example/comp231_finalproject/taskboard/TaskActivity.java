@@ -2,12 +2,16 @@ package com.example.comp231_finalproject.taskboard;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.comp231_finalproject.MainActivity;
 import com.example.comp231_finalproject.R;
 import com.example.comp231_finalproject.drag.DragLinearLayout;
 
@@ -22,6 +26,7 @@ public class TaskActivity extends AppCompatActivity implements NewTaskDialog.New
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_task);
         layout = (DragLinearLayout) findViewById (R.id.linearLayout);
 
@@ -29,6 +34,17 @@ public class TaskActivity extends AppCompatActivity implements NewTaskDialog.New
         AddColumn();
         AddColumn();
         AddColumn();
+
+        ImageView homeIcon = findViewById(R.id.homeIcon);
+        ImageView bellIcon = findViewById(R.id.bellIcon);
+        TextView toolBarTitle = findViewById(R.id.toolBarTitle);
+
+        homeIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(TaskActivity.this, MainActivity.class));
+            }
+        });
     }
     public void AddColumn() {
         LinearLayout newColumnLayout = (LinearLayout) getLayoutInflater().inflate(R.layout.task_column, layout, false);

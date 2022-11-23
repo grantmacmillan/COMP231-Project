@@ -8,11 +8,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.comp231_finalproject.MainActivity;
 import com.example.comp231_finalproject.R;
+import com.example.comp231_finalproject.ScheduleActivity;
 import com.example.comp231_finalproject.uihelpers.CalendarDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -45,6 +49,17 @@ public class CalendarActivity extends AppCompatActivity {
         mShortMonths = new DateFormatSymbols().getShortMonths();
 
         initializeUI();
+
+        ImageView homeIcon = findViewById(R.id.homeIcon);
+        ImageView bellIcon = findViewById(R.id.bellIcon);
+        TextView toolBarTitle = findViewById(R.id.toolBarTitle);
+
+        homeIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CalendarActivity.this, MainActivity.class));
+            }
+        });
     }
 
     private void initializeUI() {
@@ -129,7 +144,7 @@ public class CalendarActivity extends AppCompatActivity {
         Intent intent = CreateEventActivity.makeIntent(context, selectedDate);
 
         startActivityForResult(intent, CREATE_EVENT_REQUEST_CODE);
-        overridePendingTransition( R.anim.slide_in_up, R.anim.stay );
+
     }
 
     @Override

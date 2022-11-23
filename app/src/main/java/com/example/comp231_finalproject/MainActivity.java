@@ -56,10 +56,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void button1Clicked(View v) {
         startActivity(new Intent(MainActivity.this, TaskActivity.class));
+        overridePendingTransition( R.anim.slide_in_up, R.anim.stay );
     }
     public void button2Clicked(View v){
 
             startActivity(new Intent(MainActivity.this, CalendarActivity.class));
+        overridePendingTransition( R.anim.slide_in_up, R.anim.stay );
 
          
     }
@@ -67,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
     public void button3Clicked(View v){
 
             startActivity(new Intent(MainActivity.this, ScheduleActivity.class));
+        overridePendingTransition( R.anim.slide_in_up, R.anim.stay );
 
     }
 }
