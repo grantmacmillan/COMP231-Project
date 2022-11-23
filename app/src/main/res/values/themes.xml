@@ -12,7 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-
+        <item name="android:textColorPrimary">@color/white100</item>
         <item name="android:fontFamily">@font/prompt</item>
     </style>
 </resources>

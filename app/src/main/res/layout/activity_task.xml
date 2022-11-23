@@ -21,9 +21,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
-                <include layout="@layout/task_column"/>
+
             </com.example.comp231_finalproject.DragLinearLayout>
             <ImageView
+                android:id="@+id/addColumnIV"
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:layout_marginTop="16dp"
