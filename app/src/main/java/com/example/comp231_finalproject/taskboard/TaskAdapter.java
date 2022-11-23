@@ -1,4 +1,4 @@
-package com.example.comp231_finalproject;
+package com.example.comp231_finalproject.taskboard;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.comp231_finalproject.R;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

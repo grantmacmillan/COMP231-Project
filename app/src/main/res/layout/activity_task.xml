@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray800"
-    tools:context=".TaskActivity"
+    tools:context=".taskboard.TaskActivity"
     android:orientation="vertical">
     <include layout="@layout/toolbar"/>
 
@@ -16,13 +16,13 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent">
-            <com.example.comp231_finalproject.DragLinearLayout
+            <com.example.comp231_finalproject.drag.DragLinearLayout
                 android:id="@+id/linearLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-            </com.example.comp231_finalproject.DragLinearLayout>
+            </com.example.comp231_finalproject.drag.DragLinearLayout>
             <ImageView
                 android:id="@+id/addColumnIV"
                 android:layout_width="22dp"

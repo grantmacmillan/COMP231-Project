@@ -1,4 +1,4 @@
-package com.example.comp231_finalproject;
+package com.example.comp231_finalproject.taskboard;
 
 import android.content.Context;
 import android.widget.TextView;
@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 
 public class Column {

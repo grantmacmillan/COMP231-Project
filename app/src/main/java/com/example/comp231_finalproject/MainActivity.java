@@ -3,7 +3,6 @@ package com.example.comp231_finalproject;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,6 +10,9 @@ import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.comp231_finalproject.calendar.CalendarActivity;
+import com.example.comp231_finalproject.taskboard.TaskActivity;
 
 public class MainActivity extends AppCompatActivity {
 

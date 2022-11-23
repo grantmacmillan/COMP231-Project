@@ -1,4 +1,4 @@
-package com.example.comp231_finalproject;
+package com.example.comp231_finalproject.uihelpers;
 
 import android.view.View;
 import android.view.animation.Animation;

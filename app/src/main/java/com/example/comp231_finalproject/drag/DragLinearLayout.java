@@ -1,4 +1,4 @@
-package com.example.comp231_finalproject;
+package com.example.comp231_finalproject.drag;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -20,13 +20,13 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewTreeObserver;
 import android.view.ViewTreeObserver.OnPreDrawListener;
-import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.MotionEventCompat;
+
+import com.example.comp231_finalproject.R;
 
 /**
  * A LinearLayout that supports children Views that can be dragged and swapped around.

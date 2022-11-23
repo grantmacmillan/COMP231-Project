@@ -1,7 +1,6 @@
-package com.example.comp231_finalproject;
+package com.example.comp231_finalproject.taskboard;
 
 import android.app.AlertDialog;
-import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -16,7 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatDialogFragment;
-import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.comp231_finalproject.R;
 
 import java.util.Calendar;
 import java.util.Date;

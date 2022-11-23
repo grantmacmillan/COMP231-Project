@@ -1,13 +1,16 @@
-package com.example.comp231_finalproject;
+package com.example.comp231_finalproject.taskboard;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.comp231_finalproject.R;
+import com.example.comp231_finalproject.drag.DragLinearLayout;
+
 import java.util.ArrayList;
 import java.util.Date;
 

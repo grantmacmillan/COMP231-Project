@@ -5,18 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray800"
-    tools:context=".CalendarActivity">
+    tools:context=".calendar.CalendarActivity">
+
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:elevation="0dp">
+        <include layout="@layout/toolbar"/>
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="84dp"
+        android:layout_height="wrap_content"
         app:popupTheme="@style/Theme.AppCompat.Light"
         app:titleTextAppearance="@style/Theme.COMP231_FinalProject.TitleText"
         app:subtitleTextAppearance="@style/Theme.COMP231_FinalProject.SubTitleText" />
@@ -33,6 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:day_text_color="@color/white100"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:current_day_text_style="bold"
         app:current_day_circle_enable="true"
         app:current_day_circle_color="@color/white100"
@@ -52,7 +55,5 @@
         android:tint="#fff"
         app:elevation="0dp"
         app:srcCompat="@android:drawable/ic_input_add" />
-
-    <include layout="@layout/layout_create_calendar_event" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

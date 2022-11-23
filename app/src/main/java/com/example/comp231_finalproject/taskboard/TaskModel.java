@@ -1,4 +1,4 @@
-package com.example.comp231_finalproject;
+package com.example.comp231_finalproject.taskboard;
 
 import java.util.Date;
 
