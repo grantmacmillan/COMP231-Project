@@ -1,41 +1,25 @@
 package com.example.comp231_finalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Dictionary;
-import java.util.HashMap;
-import java.util.Map;
 
-public class TaskActivity extends AppCompatActivity {
-    ArrayList<TaskModel> taskModels = new ArrayList<>();
+
+public class TaskActivity extends AppCompatActivity implements NewTaskDialog.NewTaskDialogListener{
     DragLinearLayout layout;
-    ArrayList<RecyclerView> columnRecyclerViews;
-    HashMap<String, RecyclerView> recyclerViewDictionary = new HashMap<>();
+    ArrayList<Column> columns = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task);
-
-        //todoRecyclerView = findViewById(R.id.TodoRecyclerView);
-        //doneRecyclerView = findViewById(R.id.DoneRecyclerView);
-        SetupTaskModels();
-
-        TaskAdapter adapter = new TaskAdapter(this, taskModels);
-        //todoRecyclerView.setAdapter(adapter);
-        //todoRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        //doneRecyclerView.setAdapter(adapter);
-        //doneRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         layout = (DragLinearLayout) findViewById (R.id.linearLayout);
 
         AddColumn();
@@ -43,18 +27,6 @@ public class TaskActivity extends AppCompatActivity {
         AddColumn();
         AddColumn();
     }
-
-    private void SetupTaskModels() {
-        //Placeholder test
-        taskModels.add(new TaskModel("Task 1", new Date(2022, 11, 23)));
-        taskModels.add(new TaskModel("Task 2", new Date(2022, 11, 25)));
-        taskModels.add(new TaskModel("Task 3", new Date(2022, 11, 25)));
-        taskModels.add(new TaskModel("Task 4", new Date(2022, 11, 25)));
-        taskModels.add(new TaskModel("Task 5", new Date(2022, 11, 25)));
-        taskModels.add(new TaskModel("Task 6", new Date(2022, 11, 25)));
-        taskModels.add(new TaskModel("Task 7", new Date(2022, 11, 25)));
-    }
-
     public void AddColumn() {
         LinearLayout newColumnLayout = (LinearLayout) getLayoutInflater().inflate(R.layout.task_column, layout, false);
         layout.addView(newColumnLayout);
@@ -62,20 +34,28 @@ public class TaskActivity extends AppCompatActivity {
         RecyclerView recyclerView = newColumnLayout.findViewById(R.id.recyclerView);
         ImageView imageView = newColumnLayout.findViewById(R.id.imageView);
         TextView textView = newColumnLayout.findViewById(R.id.textView);
-
         layout.setViewDraggable(newColumnLayout, textView);
+
+        String columnName = "Placeholder Title"; //will be changed when columns can be added properly
+        Column column = new Column(columnName, recyclerView, textView, this);
+        columns.add(column);
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AddTask(recyclerView);
+                OpenNewTaskDialog(column);
             }
         });
-        //key for dictionary = column name chosen by user
-        //recyclerViewDictionary.put("Done", recyclerView);
     }
 
-    private void AddTask(RecyclerView recyclerView) {
-        Toast.makeText(this, recyclerView.toString(), Toast.LENGTH_SHORT).show();
+    private void OpenNewTaskDialog(Column column) {
+        NewTaskDialog newTaskDialog = new NewTaskDialog();
+        newTaskDialog.show(getSupportFragmentManager(), "new task dialog");
+        newTaskDialog.SetColumn(column);
+    }
+
+    @Override
+    public void CreateTask(String taskName, Date taskDate, Column column) {
+        column.addTask(new TaskModel(taskName, taskDate));
     }
 }
