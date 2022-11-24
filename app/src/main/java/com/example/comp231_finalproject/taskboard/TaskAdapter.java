@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder>{
+public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> {
     Context context;
     ArrayList<TaskModel> taskModels;
 
@@ -49,6 +49,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder>{
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         TextView tvTitle, tvDueDate;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 

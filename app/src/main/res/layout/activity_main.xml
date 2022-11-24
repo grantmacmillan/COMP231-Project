@@ -7,7 +7,8 @@
     android:orientation="vertical"
     android:background="@color/gray800"
     tools:context=".MainActivity">
-    <include layout="@layout/toolbar"/>
+
+    <include layout="@layout/toolbar" />
 
     <LinearLayout
         android:layout_weight="1"
@@ -16,6 +17,7 @@
         android:orientation="vertical"
         android:layout_gravity="center"
         android:layout_marginTop="64dp">
+
         <Button
             android:layout_width="150dp"
             android:layout_height="150dp"
@@ -26,7 +28,8 @@
             android:textSize="16dp"
             android:drawableTint="@color/white100"
             android:textColor="@color/white100"
-            android:onClick="button1Clicked"/>
+            android:onClick="button1Clicked" />
+
         <Button
             android:layout_width="150dp"
             android:layout_height="150dp"
@@ -37,7 +40,8 @@
             android:text="Calendar"
             android:drawableTint="@color/white100"
             android:textColor="@color/white100"
-            android:onClick="button2Clicked"/>
+            android:onClick="button2Clicked" />
+
         <Button
             android:layout_width="150dp"
             android:layout_height="150dp"
@@ -48,11 +52,8 @@
             android:textColor="@color/white100"
             android:drawableTop="@drawable/ic_weeklyevent"
             android:text="Schedule"
-            android:onClick="button3Clicked"/>
+            android:onClick="button3Clicked" />
     </LinearLayout>
-
-
-
 
 
 </LinearLayout>

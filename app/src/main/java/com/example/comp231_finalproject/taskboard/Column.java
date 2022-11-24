@@ -26,6 +26,7 @@ public class Column {
         this.adapter = new TaskAdapter(context, tasks);
         recyclerView.setAdapter(this.adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.context));
+        this.titleTextView.setText(this.name);
     }
 
     public TaskAdapter getAdapter() {
@@ -54,7 +55,7 @@ public class Column {
 
     public void addTask(TaskModel task) {
         tasks.add(task);
-        adapter.notifyItemChanged(tasks.size()-1);
-        recyclerView.scrollToPosition(tasks.size()-1);
+        adapter.notifyItemChanged(tasks.size() - 1);
+        recyclerView.scrollToPosition(tasks.size() - 1);
     }
 }

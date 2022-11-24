@@ -21,9 +21,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:id="@+id/textView"
-                    android:layout_width="wrap_content"
+                    android:layout_width="170dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="7dp"
@@ -32,19 +33,17 @@
                     android:gravity="left"
                     android:text="Column Title"
                     android:textColor="@color/white100" />
+
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/plus_icon"
-                    android:layout_marginLeft="80dp"
                     android:layout_marginTop="7dp"
-                    android:drawableTint="@color/white100"
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="7dp"
-                    />
+                    android:drawableTint="@color/white100"
+                    android:src="@drawable/plus_icon" />
             </LinearLayout>
-
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
@@ -52,8 +51,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:textColor="@color/white100"
-                android:layout_marginBottom="20dp"></androidx.recyclerview.widget.RecyclerView>
+                android:layout_marginBottom="20dp"
+                android:textColor="@color/white100" />
+
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 </LinearLayout>

@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/gray800"
     tools:context=".ScheduleActivity">
-    <include layout="@layout/toolbar"/>
+
+    <include layout="@layout/toolbar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

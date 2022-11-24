@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 
-public class TaskActivity extends AppCompatActivity implements NewTaskDialog.NewTaskDialogListener{
+public class TaskActivity extends AppCompatActivity implements NewTaskDialog.NewTaskDialogListener, NewColumnDialog.NewColumnDialogListener {
     DragLinearLayout layout;
     ArrayList<Column> columns = new ArrayList<>();
 
@@ -28,16 +28,19 @@ public class TaskActivity extends AppCompatActivity implements NewTaskDialog.New
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_task);
-        layout = (DragLinearLayout) findViewById (R.id.linearLayout);
-
-        AddColumn();
-        AddColumn();
-        AddColumn();
-        AddColumn();
-
+        layout = (DragLinearLayout) findViewById(R.id.linearLayout);
         ImageView homeIcon = findViewById(R.id.homeIcon);
         ImageView bellIcon = findViewById(R.id.bellIcon);
         TextView toolBarTitle = findViewById(R.id.toolBarTitle);
+        ImageView addColumn = findViewById(R.id.addColumnIV);
+
+        addColumn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NewColumnDialog newColumnDialog = new NewColumnDialog();
+                newColumnDialog.show(getSupportFragmentManager(), "new column dialog");
+            }
+        });
 
         homeIcon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,7 +49,8 @@ public class TaskActivity extends AppCompatActivity implements NewTaskDialog.New
             }
         });
     }
-    public void AddColumn() {
+
+    public void AddColumn(String columnName) {
         LinearLayout newColumnLayout = (LinearLayout) getLayoutInflater().inflate(R.layout.task_column, layout, false);
         layout.addView(newColumnLayout);
         //gets recycler view in the layout that was just added (the new column)
@@ -54,8 +58,6 @@ public class TaskActivity extends AppCompatActivity implements NewTaskDialog.New
         ImageView imageView = newColumnLayout.findViewById(R.id.imageView);
         TextView textView = newColumnLayout.findViewById(R.id.textView);
         layout.setViewDraggable(newColumnLayout, textView);
-
-        String columnName = "Placeholder Title"; //will be changed when columns can be added properly
         Column column = new Column(columnName, recyclerView, textView, this);
         columns.add(column);
 
@@ -76,5 +78,10 @@ public class TaskActivity extends AppCompatActivity implements NewTaskDialog.New
     @Override
     public void CreateTask(String taskName, Date taskDate, Column column) {
         column.addTask(new TaskModel(taskName, taskDate));
+    }
+
+    @Override
+    public void CreateColumn(String columnName) {
+        AddColumn(columnName);
     }
 }

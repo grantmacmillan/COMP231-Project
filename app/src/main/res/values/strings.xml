@@ -16,4 +16,5 @@
     <string name="no_events">no events</string>
     <string name="not_available">Not Available</string>
     <string name="delete">delete</string>
+    <string name="add">ADD</string>
 </resources>
