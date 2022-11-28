@@ -16,7 +16,6 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.comp231_finalproject.MainActivity;
 import com.example.comp231_finalproject.R;
-import com.example.comp231_finalproject.ScheduleActivity;
 import com.example.comp231_finalproject.uihelpers.CalendarDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 

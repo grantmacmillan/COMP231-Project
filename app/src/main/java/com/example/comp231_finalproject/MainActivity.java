@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.comp231_finalproject.calendar.CalendarActivity;
+import com.example.comp231_finalproject.schedule.ScheduleActivity;
 import com.example.comp231_finalproject.taskboard.TaskActivity;
 
 public class MainActivity extends AppCompatActivity {
