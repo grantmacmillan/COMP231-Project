@@ -1,10 +1,13 @@
 package com.example.comp231_finalproject.schedule;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.comp231_finalproject.R;
@@ -55,6 +58,8 @@ public class ItemGridAdapter  extends BaseAdapter {
 
         }
 
+
+
         TextView txtstartTime =view.findViewById(R.id.txt_startTime);
         txtstartTime.setText(startTime[i]);
 
@@ -66,6 +71,13 @@ public class ItemGridAdapter  extends BaseAdapter {
 
         TextView txtClassName =view.findViewById(R.id.txt_className);
         txtClassName.setText(className[i]);
+
+        if ( !txtClassName.getText().equals("")) {
+            txtClassName.setBackgroundColor(Color.WHITE);
+            txtstartTime.setBackgroundColor(Color.parseColor("#47A8B5"));
+            txtDash.setBackgroundColor(Color.parseColor("#47A8B5"));
+            txtendTime.setBackgroundColor(Color.parseColor("#47A8B5"));
+        }
 
         return view;
     }
