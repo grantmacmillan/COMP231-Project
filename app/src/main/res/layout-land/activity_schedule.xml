@@ -5,9 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray800"
-    tools:context=".schedule.ScheduleActivity"
-    android:screenOrientation="landscape" >
-
+    tools:context=".schedule.ScheduleActivity">
 
     <include
         android:id="@+id/include"
@@ -15,9 +13,11 @@
 
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="60dp"
+        android:layout_marginEnd="8dp"
         android:orientation="horizontal"
         android:paddingBottom="10dp"
         android:weightSum="2"
@@ -27,7 +27,7 @@
         tools:context="com.mobilefirst.vediosurfacedemo.GridActivity">
 
         <LinearLayout
-            android:layout_width="450dp"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.6"
             android:orientation="vertical">
@@ -64,16 +64,18 @@
 
             <GridView
                 android:id="@+id/gridview1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
                 android:listSelector="@android:color/transparent"
                 android:numColumns="7"
-                android:stretchMode="columnWidth" />
+                android:stretchMode="columnWidth" >
+
+            </GridView>
 
             <GridView
                 android:id="@+id/gridview2"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
@@ -81,7 +83,10 @@
                 android:choiceMode="multipleChoiceModal"
                 android:listSelector="@android:color/transparent"
                 android:numColumns="7"
-                android:stretchMode="columnWidth" />
+                android:stretchMode="columnWidth">
+
+            </GridView>
+
         </LinearLayout>
 
 
