@@ -18,7 +18,10 @@ import com.example.comp231_finalproject.ColumnJSON;
 import com.example.comp231_finalproject.MainActivity;
 import com.example.comp231_finalproject.MyJSON;
 import com.example.comp231_finalproject.R;
+import com.example.comp231_finalproject.taskboard.Column;
+import com.example.comp231_finalproject.taskboard.TaskModel;
 import com.example.comp231_finalproject.uihelpers.CalendarDialog;
+import com.example.comp231_finalproject.utils.ColorUtils;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 
@@ -28,8 +31,10 @@ import java.text.DateFormatSymbols;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 public class CalendarActivity extends AppCompatActivity {
 
@@ -40,6 +45,7 @@ public class CalendarActivity extends AppCompatActivity {
     private CalendarDialog mCalendarDialog;
 
     private List<Event> mEventList = new ArrayList<>();
+    private List<Event> mTaskEventList = new ArrayList<>();
 
     public static Intent makeIntent(Context context) {
         return new Intent(context, CalendarActivity.class);
@@ -68,6 +74,31 @@ public class CalendarActivity extends AppCompatActivity {
     }
 
     private void LoadTasks() {
+        String json = MyJSON.getData(this, "columns.json");
+
+        Gson gson = new Gson();
+        ArrayList<ColumnJSON> columnJSONS = null;
+
+        ColumnJSON[] array = gson.fromJson(json, ColumnJSON[].class);
+
+        if(array != null) {
+            columnJSONS = new ArrayList<>(Arrays.asList(array));
+
+            for (int i = 0; i < columnJSONS.size(); i++) {
+                ArrayList<TaskModel> tasks = columnJSONS.get(i).getTasks();
+                for (int j = 0; j < tasks.size(); j++) {
+                    String title = tasks.get(j).getTitle();
+                    Date date = tasks.get(j).getDueDate();
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.setTime(date);
+
+                    Event event = new Event(UUID.randomUUID().toString(), title, calendar, ColorUtils.mColors[0], false);
+
+                    mTaskEventList.add(event);
+                    mEventList.add(event);
+                }
+            }
+        }
     }
 
     private void LoadEvents() {
@@ -260,9 +291,10 @@ public class CalendarActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
+    protected void onDestroy() {
+        super.onDestroy();
         Gson gson = new Gson();
+        mEventList.removeAll(mTaskEventList);
         String json = gson.toJson(mEventList);
         MyJSON.saveData(this, json, "events.json");
     }
