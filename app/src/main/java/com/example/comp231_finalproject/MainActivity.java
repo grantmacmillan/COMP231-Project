@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,8 +13,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.comp231_finalproject.calendar.CalendarActivity;
+import com.example.comp231_finalproject.calendar.Event;
 import com.example.comp231_finalproject.schedule.ScheduleActivity;
+import com.example.comp231_finalproject.taskboard.Column;
 import com.example.comp231_finalproject.taskboard.TaskActivity;
+import com.example.comp231_finalproject.taskboard.TaskModel;
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         ImageView homeIcon = findViewById(R.id.homeIcon);
         ImageView bellIcon = findViewById(R.id.bellIcon);
         TextView toolBarTitle = findViewById(R.id.toolBarTitle);
+
+
 
         homeIcon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,8 +56,57 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showMenu(View v){
+        Date currentTime = Calendar.getInstance().getTime();
+
         PopupMenu popupMenu = new PopupMenu(MainActivity.this, v);
         popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
+
+        String json = MyJSON.getData(this, "columns.json");
+        Gson gson = new Gson();
+        ArrayList<ColumnJSON> columnJSONS = null;
+        ColumnJSON[] array = gson.fromJson(json, ColumnJSON[].class);
+
+        if(array != null) {
+            columnJSONS = new ArrayList<>(Arrays.asList(array));
+
+            for (int i = 0; i < columnJSONS.size(); i++) {
+                String columnName = columnJSONS.get(i).getColumnName();
+                ArrayList<TaskModel> tasks = columnJSONS.get(i).getTasks();
+
+                for (int j = 0; j < tasks.size(); j++) {
+
+                    long hours = getDateDiff(currentTime,tasks.get(j).getDueDate(),TimeUnit.HOURS);
+
+                    if(hours < 48){ //miliseconds in 48 hours
+                        Log.e("hour:", String.valueOf(hours));
+                        popupMenu.getMenu().add(tasks.get(j).getTitle()+" in "+hours+" hours");
+
+                    }
+                }
+            }
+        }
+
+
+        String json1 = MyJSON.getData(this, "events.json");
+
+        Event[] array1 = gson.fromJson(json1, Event[].class);
+
+        if(array1 != null) {
+            List<Event> events = Arrays.asList(array1);
+
+            for (int j = 0; j < events.size(); j++) {
+
+                long hours = getDateDiff(currentTime,events.get(j).getDate().getTime(),TimeUnit.HOURS);
+
+                if(hours < 48 && hours>0){ //miliseconds in 48 hours
+                    Log.e("hour:", String.valueOf(hours));
+                    popupMenu.getMenu().add(events.get(j).getTitle()+" in "+hours+" hours");
+
+                }
+            }
+        }
+
+        //popupMenu.getMenu().add("Event 4");
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -53,6 +116,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
         popupMenu.show();
+    }
+
+    public static long getDateDiff(Date date1, Date date2, TimeUnit timeUnit) {
+        long diffInHours = date2.getTime() - date1.getTime();
+        diffInHours = timeUnit.convert(diffInHours,TimeUnit.HOURS);
+        return diffInHours/1000/60/60;
     }
 
     public void button1Clicked(View v) {

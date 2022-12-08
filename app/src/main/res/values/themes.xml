@@ -14,11 +14,13 @@
         <!-- Customize your theme here. -->
         <item name="android:textColorPrimary">@color/white100</item>
         <item name="android:fontFamily">@font/prompt</item>
+        <item name="android:itemBackground">@color/gray700</item>
     </style>
 
     <style name="Theme.COMP231_FinalProject.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.COMP231_FinalProject.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 
     <style name="Theme.COMP231_FinalProject.TitleText">
         <item name="android:textColor">#fff</item>

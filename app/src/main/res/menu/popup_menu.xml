@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="Event 1"
-        android:id="@+id/event1"/>
-    <item android:title="Event 2"
-        android:id="@+id/event2"/>
-    <item android:title="Event 3"
-        android:id="@+id/event3"/>
+
 
 </menu>
