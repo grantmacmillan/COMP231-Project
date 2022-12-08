@@ -10,10 +10,10 @@ import java.io.IOException;
 
 
 public class MyJSON {
-    static String fileName = "myBlog.json";
 
-    public static void saveData(Context context, String mJsonResponse) {
+    public static void saveData(Context context, String mJsonResponse, String fileName) {
         try {
+            Log.e("filelocation", context.getFilesDir().getPath());
             FileWriter file = new FileWriter(context.getFilesDir().getPath() + "/" + fileName);
             file.write(mJsonResponse);
             file.flush();
@@ -23,7 +23,7 @@ public class MyJSON {
         }
     }
 
-    public static String getData(Context context) {
+    public static String getData(Context context, String fileName) {
         try {
             File f = new File(context.getFilesDir().getPath() + "/" + fileName);
             //check whether file exists

@@ -14,15 +14,19 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.comp231_finalproject.ColumnJSON;
 import com.example.comp231_finalproject.MainActivity;
+import com.example.comp231_finalproject.MyJSON;
 import com.example.comp231_finalproject.R;
 import com.example.comp231_finalproject.uihelpers.CalendarDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.gson.Gson;
 
 import org.hugoandrade.calendarviewlib.CalendarView;
 
 import java.text.DateFormatSymbols;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
@@ -46,6 +50,8 @@ public class CalendarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         mShortMonths = new DateFormatSymbols().getShortMonths();
+        LoadEvents();
+        LoadTasks();
 
         initializeUI();
 
@@ -59,6 +65,22 @@ public class CalendarActivity extends AppCompatActivity {
                 startActivity(new Intent(CalendarActivity.this, MainActivity.class));
             }
         });
+    }
+
+    private void LoadTasks() {
+    }
+
+    private void LoadEvents() {
+        Gson gson = new Gson();
+        String json = MyJSON.getData(this, "events.json");
+
+        Event[] array = gson.fromJson(json, Event[].class);
+
+        if(array != null) {
+            List<Event> events = Arrays.asList(array);
+
+            mEventList.addAll(events);
+        }
     }
 
     private void initializeUI() {
@@ -237,4 +259,11 @@ public class CalendarActivity extends AppCompatActivity {
                 event.isCompleted() ? Color.TRANSPARENT : Color.RED);
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Gson gson = new Gson();
+        String json = gson.toJson(mEventList);
+        MyJSON.saveData(this, json, "events.json");
+    }
 }

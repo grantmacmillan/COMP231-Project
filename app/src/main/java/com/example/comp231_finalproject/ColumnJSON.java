@@ -12,4 +12,12 @@ public class ColumnJSON {
         this.columnName = columnName;
         this.tasks = tasks;
     }
+
+    public String getColumnName() {
+        return columnName;
+    }
+
+    public ArrayList<TaskModel> getTasks() {
+        return tasks;
+    }
 }
