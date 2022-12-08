@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 
-public class TaskActivity extends AppCompatActivity implements NewTaskDialog.NewTaskDialogListener, NewColumnDialog.NewColumnDialogListener, RecyclerViewInterface {
+public class TaskActivity extends AppCompatActivity implements NewTaskDialog.NewTaskDialogListener, NewColumnDialog.NewColumnDialogListener,EditTaskDialog.EditTaskDialogListener, RecyclerViewInterface {
     DragLinearLayout layout;
     ArrayList<Column> columns = new ArrayList<>();
 
@@ -89,6 +89,15 @@ public class TaskActivity extends AppCompatActivity implements NewTaskDialog.New
 
     @Override
     public void OnItemClick(int position, Column column) {
-        Toast.makeText(this,column.getTasks().get(position).title , Toast.LENGTH_SHORT).show();
+        EditTaskDialog editTaskDialog = new EditTaskDialog();
+        editTaskDialog.show(getSupportFragmentManager(), "edit task dialog");
+        editTaskDialog.SetColumns(columns);
+        editTaskDialog.SetTask(column.getTasks().get(position));
+        editTaskDialog.SetColumn(column);
+    }
+
+    @Override
+    public void EditTask(String taskName, Date taskDate, Column column) {
+
     }
 }
