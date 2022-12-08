@@ -6,26 +6,33 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.comp231_finalproject.R;
+import com.woxthebox.draglistview.DragItem;
+import com.woxthebox.draglistview.DragItemRecyclerView;
+import com.woxthebox.draglistview.DragListView;
+
 import java.util.ArrayList;
 
 
 public class Column {
     String name;
-    RecyclerView recyclerView;
+    DragListView recyclerView;
     TextView titleTextView;
     ArrayList<TaskModel> tasks;
     TaskAdapter adapter;
     Context context;
 
-    public Column(String name, RecyclerView recyclerView, TextView titleTextView, Context context) {
+    public Column(String name, DragListView recyclerView, TextView titleTextView, Context context, RecyclerViewInterface recyclerViewInterface) {
         this.name = name;
         this.recyclerView = recyclerView;
         this.titleTextView = titleTextView;
         this.context = context;
         this.tasks = new ArrayList<>();
-        this.adapter = new TaskAdapter(context, tasks);
-        recyclerView.setAdapter(this.adapter);
+        this.adapter = new TaskAdapter(context, tasks, R.id.taskCV, true, recyclerViewInterface, this);
+        recyclerView.setAdapter(this.adapter, false);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.context));
+        recyclerView.setDragEnabled(true);
+        recyclerView.setCanDragVertically(true);
         this.titleTextView.setText(this.name);
     }
 
@@ -41,7 +48,7 @@ public class Column {
         return name;
     }
 
-    public RecyclerView getRecyclerView() {
+    public DragListView getRecyclerView() {
         return recyclerView;
     }
 
@@ -56,6 +63,6 @@ public class Column {
     public void addTask(TaskModel task) {
         tasks.add(task);
         adapter.notifyItemChanged(tasks.size() - 1);
-        recyclerView.scrollToPosition(tasks.size() - 1);
+        //recyclerView.scrollToPosition(tasks.size() - 1);
     }
 }

@@ -14,12 +14,14 @@ import android.widget.Toast;
 import com.example.comp231_finalproject.MainActivity;
 import com.example.comp231_finalproject.R;
 import com.example.comp231_finalproject.drag.DragLinearLayout;
+import com.woxthebox.draglistview.DragItemRecyclerView;
+import com.woxthebox.draglistview.DragListView;
 
 import java.util.ArrayList;
 import java.util.Date;
 
 
-public class TaskActivity extends AppCompatActivity implements NewTaskDialog.NewTaskDialogListener, NewColumnDialog.NewColumnDialogListener {
+public class TaskActivity extends AppCompatActivity implements NewTaskDialog.NewTaskDialogListener, NewColumnDialog.NewColumnDialogListener, RecyclerViewInterface {
     DragLinearLayout layout;
     ArrayList<Column> columns = new ArrayList<>();
 
@@ -54,11 +56,11 @@ public class TaskActivity extends AppCompatActivity implements NewTaskDialog.New
         LinearLayout newColumnLayout = (LinearLayout) getLayoutInflater().inflate(R.layout.task_column, layout, false);
         layout.addView(newColumnLayout);
         //gets recycler view in the layout that was just added (the new column)
-        RecyclerView recyclerView = newColumnLayout.findViewById(R.id.recyclerView);
+        DragListView recyclerView = newColumnLayout.findViewById(R.id.recyclerView);
         ImageView imageView = newColumnLayout.findViewById(R.id.imageView);
         TextView textView = newColumnLayout.findViewById(R.id.textView);
         layout.setViewDraggable(newColumnLayout, textView);
-        Column column = new Column(columnName, recyclerView, textView, this);
+        Column column = new Column(columnName, recyclerView, textView, this, this);
         columns.add(column);
 
         imageView.setOnClickListener(new View.OnClickListener() {
@@ -83,5 +85,10 @@ public class TaskActivity extends AppCompatActivity implements NewTaskDialog.New
     @Override
     public void CreateColumn(String columnName) {
         AddColumn(columnName);
+    }
+
+    @Override
+    public void OnItemClick(int position, Column column) {
+        Toast.makeText(this,column.getTasks().get(position).title , Toast.LENGTH_SHORT).show();
     }
 }

@@ -45,7 +45,7 @@
                     android:src="@drawable/plus_icon" />
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
+            <com.woxthebox.draglistview.DragListView
                 android:id="@+id/recyclerView"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
