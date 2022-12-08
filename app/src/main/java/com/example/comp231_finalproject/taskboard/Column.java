@@ -65,4 +65,9 @@ public class Column {
         adapter.notifyItemChanged(tasks.size() - 1);
         //recyclerView.scrollToPosition(tasks.size() - 1);
     }
+
+    public void removeTask(TaskModel task) {
+        tasks.remove(task);
+        adapter.notifyDataSetChanged();
+    }
 }
