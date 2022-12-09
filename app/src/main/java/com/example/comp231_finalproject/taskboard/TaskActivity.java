@@ -51,6 +51,7 @@ public class TaskActivity extends AppCompatActivity implements NewTaskDialog.New
                 startActivity(new Intent(TaskActivity.this, MainActivity.class));
             }
         });
+        LoadTasks();
     }
 
     public void AddColumn(String columnName) {
@@ -156,9 +157,7 @@ public class TaskActivity extends AppCompatActivity implements NewTaskDialog.New
         MyJSON.saveData(this, json, "columns.json");
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
+    protected void LoadTasks() {
         String json = MyJSON.getData(this, "columns.json");
 
         Gson gson = new Gson();
