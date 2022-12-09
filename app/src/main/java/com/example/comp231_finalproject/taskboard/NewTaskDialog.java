@@ -58,6 +58,9 @@ public class NewTaskDialog extends AppCompatDialogFragment {
                 int year = DPDueDate.getYear();
                 Calendar c = Calendar.getInstance();
                 c.set(year, month, day);
+                c.set(Calendar.HOUR_OF_DAY, 23);
+                c.set(Calendar.MINUTE, 59);
+
                 Date taskDate = c.getTime();
                 listener.CreateTask(taskName, taskDate, column);
                 dialog.cancel();
