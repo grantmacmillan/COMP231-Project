@@ -23,8 +23,12 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
@@ -57,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void showMenu(View v){
         Date currentTime = Calendar.getInstance().getTime();
+        HashMap<String, Long> map = new HashMap<>();
+        LinkedHashMap<String, Long> sortedMap = new LinkedHashMap<>();
+        ArrayList<Long> list = new ArrayList<>();
 
         PopupMenu popupMenu = new PopupMenu(MainActivity.this, v);
         popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
@@ -77,9 +84,10 @@ public class MainActivity extends AppCompatActivity {
 
                     long hours = getDateDiff(currentTime,tasks.get(j).getDueDate(),TimeUnit.HOURS);
 
-                    if(hours < 48){ //miliseconds in 48 hours
+                    if(hours < 48){
                         Log.e("hour:", String.valueOf(hours));
-                        popupMenu.getMenu().add(tasks.get(j).getTitle()+" in "+hours+" hours");
+                        map.put(tasks.get(j).getTitle(), hours);
+                        //popupMenu.getMenu().add(tasks.get(j).getTitle()+" in "+hours+" hours");
 
                     }
                 }
@@ -98,13 +106,35 @@ public class MainActivity extends AppCompatActivity {
 
                 long hours = getDateDiff(currentTime,events.get(j).getDate().getTime(),TimeUnit.HOURS);
 
-                if(hours < 48 && hours>0){ //miliseconds in 48 hours
+                if(hours < 48 && hours>0){
                     Log.e("hour:", String.valueOf(hours));
-                    popupMenu.getMenu().add(events.get(j).getTitle()+" in "+hours+" hours");
+                    map.put(events.get(j).getTitle(), hours);
+                    //popupMenu.getMenu().add(events.get(j).getTitle()+" in "+hours+" hours");
 
                 }
             }
         }
+
+        for (Map.Entry<String, Long> entry : map.entrySet()) {
+            list.add(entry.getValue());
+        }
+        Collections.sort(list);
+        for (long num : list) {
+            for (Map.Entry<String, Long> entry : map.entrySet()) {
+                if (entry.getValue().equals(num)) {
+                    sortedMap.put(entry.getKey(), num);
+                }
+            }
+        }
+
+        //Sort By Hours
+        for (Map.Entry<String, Long> entry : sortedMap.entrySet()) {
+            String key = entry.getKey();
+            Long value = entry.getValue();
+
+            popupMenu.getMenu().add(key+" in "+value+" hours");
+        }
+        //System.out.println(sortedMap);
 
         //popupMenu.getMenu().add("Event 4");
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
