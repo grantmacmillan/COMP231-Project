@@ -11,7 +11,7 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Edit Task"
+        android:text="Edit Column"
         android:gravity="center"
         android:textStyle="bold"
         android:textColor="@color/white100"
@@ -39,27 +39,11 @@
         android:textColorHint="@color/gray300"
         android:textSize="15dp" />
 
-    <DatePicker
-        android:id="@+id/taskDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/taskName"
-        android:calendarViewShown="false"
-        android:datePickerMode="spinner" />
-    <GridLayout
-        android:id="@+id/gridLayout"
-        android:columnCount="3"
-        android:useDefaultMargins="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/taskDate">
-    </GridLayout>
-
     <Button
         android:id="@+id/deleteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/gridLayout"
+        android:layout_below="@+id/taskName"
         android:layout_marginRight="10dp"
         android:layout_toLeftOf="@+id/addButton"
         android:backgroundTint="@color/gray800"
@@ -70,10 +54,10 @@
         android:id="@+id/addButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/gridLayout"
+        android:layout_below="@+id/taskName"
         android:layout_alignParentRight="true"
         android:backgroundTint="@color/gray800"
-        android:text="CONFIRM"
+        android:text="@string/add"
         android:textColor="@color/white" />
 
 </RelativeLayout>

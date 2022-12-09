@@ -362,9 +362,7 @@ public class DragLinearLayout extends LinearLayout {
         return scrollSensitiveAreaThickness;
     }
 
-    /**
-     * See {@link com.jmedeisis.draglinearlayout.DragLinearLayout.OnViewSwapListener}.
-     */
+
     public void setOnViewSwapListener(OnViewSwapListener swapListener) {
         this.swapListener = swapListener;
     }

@@ -1,7 +1,6 @@
 package com.example.comp231_finalproject.taskboard;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +8,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.comp231_finalproject.ColumnJSON;
 import com.example.comp231_finalproject.MainActivity;
@@ -17,19 +15,14 @@ import com.example.comp231_finalproject.MyJSON;
 import com.example.comp231_finalproject.R;
 import com.example.comp231_finalproject.drag.DragLinearLayout;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import com.woxthebox.draglistview.DragItemRecyclerView;
 import com.woxthebox.draglistview.DragListView;
 
-import java.lang.reflect.Array;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 
 
-public class TaskActivity extends AppCompatActivity implements NewTaskDialog.NewTaskDialogListener, NewColumnDialog.NewColumnDialogListener,EditTaskDialog.EditTaskDialogListener, RecyclerViewInterface {
+public class TaskActivity extends AppCompatActivity implements NewTaskDialog.NewTaskDialogListener, NewColumnDialog.NewColumnDialogListener,EditTaskDialog.EditTaskDialogListener, EditColumnDialog.EditColumnDialogListener, RecyclerViewInterface {
     DragLinearLayout layout;
     ArrayList<Column> columns = new ArrayList<>();
 
@@ -67,14 +60,21 @@ public class TaskActivity extends AppCompatActivity implements NewTaskDialog.New
         DragListView recyclerView = newColumnLayout.findViewById(R.id.recyclerView);
         ImageView imageView = newColumnLayout.findViewById(R.id.imageView);
         TextView textView = newColumnLayout.findViewById(R.id.textView);
+        ImageView editImageView = newColumnLayout.findViewById(R.id.editImageView);
         layout.setViewDraggable(newColumnLayout, textView);
-        Column column = new Column(columnName, recyclerView, textView, this, this);
+        Column column = new Column(columnName, recyclerView, textView, this, this, newColumnLayout);
         columns.add(column);
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 OpenNewTaskDialog(column);
+            }
+        });
+        editImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                OpenEditColumnDialog(column);
             }
         });
     }
@@ -85,8 +85,10 @@ public class TaskActivity extends AppCompatActivity implements NewTaskDialog.New
         DragListView recyclerView = newColumnLayout.findViewById(R.id.recyclerView);
         ImageView imageView = newColumnLayout.findViewById(R.id.imageView);
         TextView textView = newColumnLayout.findViewById(R.id.textView);
+        ImageView editImageView = newColumnLayout.findViewById(R.id.editImageView);
+
         layout.setViewDraggable(newColumnLayout, textView);
-        Column column = new Column(columnName, recyclerView, textView, this, this);
+        Column column = new Column(columnName, recyclerView, textView, this, this, newColumnLayout);
         columns.add(column);
 
         imageView.setOnClickListener(new View.OnClickListener() {
@@ -95,9 +97,21 @@ public class TaskActivity extends AppCompatActivity implements NewTaskDialog.New
                 OpenNewTaskDialog(column);
             }
         });
+
+        editImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                OpenEditColumnDialog(column);
+            }
+        });
         return column;
     }
 
+    private void OpenEditColumnDialog(Column column) {
+        EditColumnDialog editColumnDialog = new EditColumnDialog();
+        editColumnDialog.show(getSupportFragmentManager(), "edit column dialog");
+        editColumnDialog.SetColumn(column);
+    }
     private void OpenNewTaskDialog(Column column) {
         NewTaskDialog newTaskDialog = new NewTaskDialog();
         newTaskDialog.show(getSupportFragmentManager(), "new task dialog");
@@ -124,8 +138,10 @@ public class TaskActivity extends AppCompatActivity implements NewTaskDialog.New
     }
 
     @Override
-    public void EditTask(String taskName, Date taskDate, Column column) {
-
+    public void EditTask(String taskName, Date taskDate, Column column, TaskModel taskModel) {
+        column.adapter.taskModels.get(column.adapter.taskModels.indexOf(taskModel)).setTitle(taskName);
+        column.adapter.taskModels.get(column.adapter.taskModels.indexOf(taskModel)).setDueDate(taskDate);
+        column.adapter.notifyItemChanged(column.adapter.taskModels.indexOf(taskModel));
     }
 
     @Override
@@ -164,5 +180,12 @@ public class TaskActivity extends AppCompatActivity implements NewTaskDialog.New
                 }
             }
         }
+    }
+
+    @Override
+    public void DeleteColumn(Column column) {
+        layout.removeView(column.getLinearLayout());
+        columns.remove(column);
+
     }
 }

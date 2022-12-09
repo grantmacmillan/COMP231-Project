@@ -21,4 +21,12 @@ public class TaskModel {
     public Date getDueDate() {
         return dueDate;
     }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDueDate(Date dueDate) {
+        this.dueDate = dueDate;
+    }
 }

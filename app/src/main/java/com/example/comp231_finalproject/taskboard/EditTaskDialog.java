@@ -47,12 +47,14 @@ public class EditTaskDialog extends AppCompatDialogFragment {
 
         builder.setView(view);
         dialog = builder.create();
-        Button cancelButton = view.findViewById(R.id.cancelButton);
+        Button deleteButton = view.findViewById(R.id.deleteButton);
         Button addButton = view.findViewById(R.id.addButton);
 
-        cancelButton.setOnClickListener(new View.OnClickListener() {
+        deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                column.adapter.taskModels.remove(taskModel);
+                column.adapter.notifyDataSetChanged();
                 dialog.cancel();
             }
         });
@@ -67,15 +69,19 @@ public class EditTaskDialog extends AppCompatDialogFragment {
                 Calendar c = Calendar.getInstance();
                 c.set(year, month, day);
                 Date taskDate = c.getTime();
-                listener.EditTask(taskName, taskDate, column);
+                listener.EditTask(taskName, taskDate, column, taskModel);
                 dialog.cancel();
             }
         });
         ETTaskName = view.findViewById(R.id.taskName);
         DPDueDate = view.findViewById(R.id.taskDate);
         gridLayout = view.findViewById(R.id.gridLayout);
-        Calendar c = Calendar.getInstance();
-        DPDueDate.init(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), null);
+        ETTaskName.setText(taskModel.getTitle());
+        Date date = taskModel.getDueDate();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        DPDueDate.init(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH), null );
+
 
         SetupButtons();
 
@@ -126,6 +132,6 @@ public class EditTaskDialog extends AppCompatDialogFragment {
     }
 
     public interface EditTaskDialogListener {
-        void EditTask(String taskName, Date taskDate, Column column);
+        void EditTask(String taskName, Date taskDate, Column column, TaskModel taskModel);
     }
 }
