@@ -57,7 +57,7 @@
         android:layout_below="@+id/taskName"
         android:layout_alignParentRight="true"
         android:backgroundTint="@color/gray800"
-        android:text="@string/add"
+        android:text="confirm"
         android:textColor="@color/white" />
 
 </RelativeLayout>
