@@ -28,14 +28,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="7dp"
+                    android:textStyle="bold"
                     android:layout_marginBottom="7dp"
                     android:layout_alignParentLeft="true"
                     android:text="Column Title"
                     android:textColor="@color/white100" />
+
                 <ImageView
                     android:id="@+id/editImageView"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_marginTop="7dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="7dp"
@@ -45,8 +47,8 @@
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_alignParentRight="true"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_marginTop="7dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="7dp"

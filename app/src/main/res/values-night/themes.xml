@@ -2,15 +2,89 @@
     <!-- Base application theme. -->
     <style name="Theme.COMP231_FinalProject" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimary">@color/gray700</item>
+        <item name="colorPrimaryVariant">@color/gray700</item>
+        <item name="colorOnPrimary">@color/gray300</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:textColorPrimary">@color/white100</item>
+        <item name="android:fontFamily">@font/prompt</item>
+        <item name="android:itemBackground">@color/gray700</item>
+        <item name="android:colorAccent">@color/gray700</item>
+
     </style>
+
+    <style name="Theme.COMP231_FinalProject.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.COMP231_FinalProject.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <style name="Theme.COMP231_FinalProject.TitleText">
+        <item name="android:textColor">#fff</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+
+    <style name="Theme.COMP231_FinalProject.SubTitleText">
+        <item name="android:textColor">#fff</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="Theme.COMP231_FinalProject.TitleText.Dark" parent="Theme.COMP231_FinalProject.TitleText" >
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="Theme.COMP231_FinalProject.SubTitleText.Dark" parent="Theme.COMP231_FinalProject.SubTitleText" >
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="createEventToolbarItems">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="createEventItemTextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">6.5dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="createEventIconStyle">
+        <item name="android:layout_width">18dp</item>
+        <item name="android:layout_height">18dp</item>
+        <item name="android:layout_marginTop">15.5dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+        <item name="android:layout_marginStart">8.5dp</item>
+        <item name="android:layout_marginEnd">8.5dp</item>
+        <!--<item name="android:layout_margin">8.5dp</item>-->
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:contentDescription">@string/not_available</item>
+    </style>
+
+    <style name="createEventSeparator">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:background">#ddd</item>
+        <item name="android:layout_marginStart">18dp</item>
+        <item name="android:layout_marginEnd">18dp</item>
+    </style>
+
+
 </resources>

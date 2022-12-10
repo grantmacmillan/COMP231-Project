@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">COMP231_FinalProject</string>
+    <string name="app_name">DOEDU</string>
     <string name="title_activity_simple_calendar_view" translatable="false">Simple CalendarView</string>
     <string name="title_activity_mini_calendar_view_popup" translatable="false">CalendarView Popup</string>
     <string name="today">today</string>
@@ -17,7 +17,7 @@
     <string name="not_available">Not Available</string>
     <string name="delete">delete</string>
     <string name="add">ADD</string>
-
+    <dimen name="downwards_drop_shadow_height">16dp</dimen>
     <string-array name="my_header_title">
         <item></item>
         <item>Mon</item>
