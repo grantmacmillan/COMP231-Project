@@ -62,8 +62,6 @@ public class CalendarActivity extends AppCompatActivity {
         initializeUI();
 
         ImageView homeIcon = findViewById(R.id.homeIcon);
-        ImageView bellIcon = findViewById(R.id.bellIcon);
-        TextView toolBarTitle = findViewById(R.id.toolBarTitle);
 
         homeIcon.setOnClickListener(new View.OnClickListener() {
             @Override

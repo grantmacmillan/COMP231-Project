@@ -33,8 +33,6 @@ public class TaskActivity extends AppCompatActivity implements NewTaskDialog.New
         setContentView(R.layout.activity_task);
         layout = (DragLinearLayout) findViewById(R.id.linearLayout);
         ImageView homeIcon = findViewById(R.id.homeIcon);
-        ImageView bellIcon = findViewById(R.id.bellIcon);
-        TextView toolBarTitle = findViewById(R.id.toolBarTitle);
         ImageView addColumn = findViewById(R.id.addColumnIV);
 
         addColumn.setOnClickListener(new View.OnClickListener() {

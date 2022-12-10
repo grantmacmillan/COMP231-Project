@@ -15,6 +15,8 @@
         <item name="android:textColorPrimary">@color/white100</item>
         <item name="android:fontFamily">@font/prompt</item>
         <item name="android:itemBackground">@color/gray700</item>
+        <item name="android:colorAccent">@color/gray700</item>
+
     </style>
 
     <style name="Theme.COMP231_FinalProject.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

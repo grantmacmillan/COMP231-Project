@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.comp231_finalproject.calendar.CalendarActivity;
 import com.example.comp231_finalproject.calendar.Event;
+import com.example.comp231_finalproject.schedule.NewScheduleActivity;
 import com.example.comp231_finalproject.schedule.ScheduleActivity;
 import com.example.comp231_finalproject.taskboard.Column;
 import com.example.comp231_finalproject.taskboard.TaskActivity;
@@ -37,19 +38,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        ImageView homeIcon = findViewById(R.id.homeIcon);
+        
         ImageView bellIcon = findViewById(R.id.bellIcon);
-        TextView toolBarTitle = findViewById(R.id.toolBarTitle);
-
-
-
-        homeIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Home button clicked", Toast.LENGTH_LONG).show();
-            }
-        });
 
         bellIcon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -168,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void button3Clicked(View v){
 
-            startActivity(new Intent(MainActivity.this, ScheduleActivity.class));
+            startActivity(new Intent(MainActivity.this, NewScheduleActivity.class));
         overridePendingTransition( R.anim.slide_in_up, R.anim.stay );
 
     }

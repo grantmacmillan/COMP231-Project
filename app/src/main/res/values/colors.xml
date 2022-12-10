@@ -20,4 +20,7 @@
     <color name="gray700">#404252</color>
     <color name="gray800">#282A3A</color>
     <color name="black900">#101223</color>
+    <string-array name="sticker_color">
+        <item>#f08676</item>
+    </string-array>
 </resources>

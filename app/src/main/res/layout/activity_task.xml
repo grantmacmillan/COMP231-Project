@@ -9,7 +9,7 @@
     tools:context=".taskboard.TaskActivity"
     android:orientation="vertical">
 
-    <include layout="@layout/toolbar" />
+    <include layout="@layout/toolbar_no_bell" />
 
     <HorizontalScrollView
         android:layout_width="match_parent"

@@ -51,16 +51,21 @@
         <entry key="..\:/Users/Ben/Desktop/College/Software Development COMP231/COMP231-Project/app/src/main/res/layout/activity_calendar.xml" value="0.27760891590678827" />
         <entry key="..\:/Users/Ben/Desktop/College/Software Development COMP231/COMP231-Project/app/src/main/res/layout/activity_create_event.xml" value="0.2689183411714408" />
         <entry key="..\:/Users/Ben/Desktop/College/Software Development COMP231/COMP231-Project/app/src/main/res/layout/activity_main.xml" value="0.5744791666666667" />
+        <entry key="..\:/Users/Ben/Desktop/College/Software Development COMP231/COMP231-Project/app/src/main/res/layout/activity_new_schedule.xml" value="0.33" />
+        <entry key="..\:/Users/Ben/Desktop/College/Software Development COMP231/COMP231-Project/app/src/main/res/layout/activity_select_date_and_time.xml" value="0.33091568449682685" />
         <entry key="..\:/Users/Ben/Desktop/College/Software Development COMP231/COMP231-Project/app/src/main/res/layout/activity_task.xml" value="0.47419354838709676" />
         <entry key="..\:/Users/Ben/Desktop/College/Software Development COMP231/COMP231-Project/app/src/main/res/layout/column_button.xml" value="0.2689183411714408" />
         <entry key="..\:/Users/Ben/Desktop/College/Software Development COMP231/COMP231-Project/app/src/main/res/layout/dialog_calendar.xml" value="0.22" />
         <entry key="..\:/Users/Ben/Desktop/College/Software Development COMP231/COMP231-Project/app/src/main/res/layout/edit_column_dialog.xml" value="0.4715690466011116" />
         <entry key="..\:/Users/Ben/Desktop/College/Software Development COMP231/COMP231-Project/app/src/main/res/layout/edit_task_dialog.xml" value="0.5" />
         <entry key="..\:/Users/Ben/Desktop/College/Software Development COMP231/COMP231-Project/app/src/main/res/layout/new_column_dialog.xml" value="0.5" />
+        <entry key="..\:/Users/Ben/Desktop/College/Software Development COMP231/COMP231-Project/app/src/main/res/layout/new_schedule_item_dialog.xml" value="0.5" />
         <entry key="..\:/Users/Ben/Desktop/College/Software Development COMP231/COMP231-Project/app/src/main/res/layout/new_task_dialog.xml" value="0.2688034188034188" />
         <entry key="..\:/Users/Ben/Desktop/College/Software Development COMP231/COMP231-Project/app/src/main/res/layout/newtask_dialog.xml" value="0.47136752136752136" />
-        <entry key="..\:/Users/Ben/Desktop/College/Software Development COMP231/COMP231-Project/app/src/main/res/layout/recycler_view_card.xml" value="0.13142498955286253" />
+        <entry key="..\:/Users/Ben/Desktop/College/Software Development COMP231/COMP231-Project/app/src/main/res/layout/recycler_view_card.xml" value="0.25" />
         <entry key="..\:/Users/Ben/Desktop/College/Software Development COMP231/COMP231-Project/app/src/main/res/layout/task_column.xml" value="0.67" />
+        <entry key="..\:/Users/Ben/Desktop/College/Software Development COMP231/COMP231-Project/app/src/main/res/layout/toolbar.xml" value="0.4685763146643865" />
+        <entry key="..\:/Users/Ben/Desktop/College/Software Development COMP231/COMP231-Project/app/src/main/res/layout/toolbar_no_bell.xml" value="0.4685763146643865" />
       </map>
     </option>
   </component>
